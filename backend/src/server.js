@@ -16,7 +16,8 @@ app.get('/', (req, res) => {
 // Importando e usando as rotas de Categorias
 const categoryRoutes = require('./routes/categoryRoutes');
 app.use('/categories', categoryRoutes);
-
+const transactionRoutes = require('./routes/transactionRoutes');
+app.use('/transactions', transactionRoutes);
 app.listen(PORT, () => {
   console.log(`🚀 Servidor rodando em http://localhost:${PORT}`);
 });

@@ -24,16 +24,17 @@ function initDB() {
       background TEXT,
       isIncome INTEGER,
       isDefault INTEGER DEFAULT 0
-    )`);
+    )`);  
 
-    // Tabela de Transações
+    // Tabela de Transações (Bloco único e correto)
     db.run(`CREATE TABLE IF NOT EXISTS transactions (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
-      description TEXT,
-      value REAL,
-      date TEXT,
-      categoryId INTEGER,
-      FOREIGN KEY(categoryId) REFERENCES categories(id)
+      title TEXT NOT NULL,
+      type TEXT NOT NULL,
+      amount REAL NOT NULL,
+      categoryId INTEGER NOT NULL,
+      date TEXT NOT NULL,
+      FOREIGN KEY (categoryId) REFERENCES categories(id)
     )`);
 
     // Seed: Inserir as 5 categorias padrão se o banco estiver vazio
@@ -51,6 +52,6 @@ function initDB() {
       }
     });
   });
-}
+}   
 
 module.exports = db;
