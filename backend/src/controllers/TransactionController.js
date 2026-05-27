@@ -74,7 +74,7 @@ module.exports = {
       if (this.changes === 0) {
         return res.status(404).json({ error: "Transação não encontrada." });
       }
-      return res.status(200).json({ message: "Transação deletada com sucesso!" });
+    return res.status(204).send();
     });
   }
 };
