@@ -8,7 +8,7 @@ const screenWidth = Dimensions.get('window').width;
 
 export default function SummaryScreen() {
   const { transactions } = useContext(TransactionContext);
-  const { user } = useContext(AuthContext); // <-- Puxamos o seu nome logado
+  const { user } = useContext(AuthContext); // <-- Puxamos o seu nome logado aqui
 
   const balance = transactions.reduce((acc, curr) => {
     return curr.type === 'income' ? acc + curr.amount : acc - curr.amount;
